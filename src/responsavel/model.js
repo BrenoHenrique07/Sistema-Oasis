@@ -1,7 +1,8 @@
 const { Sequelize, DataTypes } = require('sequelize');
+const pacientes = require('../paciente/model');
 const db = require('../db/connect');
 
-const Paciente = db.returnInstance().define('pacientes', {
+const Responsavel = db.returnInstance().define('responsaveis', {
   id: {
     type: DataTypes.BIGINT,
     autoIncrement: true,
@@ -19,22 +20,12 @@ const Paciente = db.returnInstance().define('pacientes', {
     type: DataTypes.STRING,
     allowNull: false
   },
-  endereco: {
+  rg: {
     type: DataTypes.STRING,
     allowNull: false   
   },
-  doenca: {
-    type: DataTypes.STRING,
-    allowNull: false   
-  },
-  historico_doencas: {
-    type: DataTypes.STRING,
-    allowNull: false   
-  },
-  data_nascimento: {
-    type: DataTypes.DATE,
-    allowNull: false   
-  }
 });
 
-module.exports = Paciente;
+Responsavel.belongsTo(pacientes, { foreignKey: 'id_paciente' });
+
+module.exports = Responsavel;

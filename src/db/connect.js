@@ -25,8 +25,13 @@ function closeConnection() {
     }
 }
 
+async function syncDataBase() {
+    await sequelize.sync({ force: true });
+}
+
 module.exports = {
     returnInstance,
     openConnection,
-    closeConnection
+    closeConnection,
+    syncDataBase
 }
