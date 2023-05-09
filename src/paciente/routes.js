@@ -5,7 +5,7 @@ router.get('/', (req, res) => {
     res.json('deu certo');
 });
 
-router.get('/:id', () => {
+router.get('/:id', (req, res) => {
 
 });
 
