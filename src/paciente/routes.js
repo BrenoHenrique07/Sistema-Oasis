@@ -1,24 +1,15 @@
 const express = require('express');
 const router = express.Router();
+const controller = require('./controller');
 
-router.get('/', (req, res) => {
-    res.json('deu certo');
-});
+router.get('/', controller.findAll);
 
-router.get('/:id', (req, res) => {
+router.get('/:id', controller.findById);
 
-});
+router.post('/', controller.createPacient);
 
-router.post('/', () => {
+router.put('/:id', controller.alterPacient);
 
-});
-
-router.put('/:id', () => {
-
-});
-
-router.delete('/:id', () => {
-
-});
+router.delete('/:id', controller.deletePacient);
 
 module.exports = router;

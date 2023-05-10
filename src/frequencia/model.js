@@ -17,6 +17,8 @@ const Frequencia = db.returnInstance().define('frequencia', {
     defaultValue: DataTypes.NOW,
     allowNull: false   
   }
+}, {
+  timestamps: false
 });
 
 Frequencia.belongsTo(pacientes, { foreignKey: 'id_paciente' });

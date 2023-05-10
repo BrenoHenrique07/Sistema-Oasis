@@ -1,7 +1,7 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const db = require('../db/connect');
 
-const Paciente = db.returnInstance().define('Paciente', {
+const Paciente = db.returnInstance().define('paciente', {
   id: {
     type: DataTypes.BIGINT,
     autoIncrement: true,
@@ -32,9 +32,11 @@ const Paciente = db.returnInstance().define('Paciente', {
     allowNull: false   
   },
   data_nascimento: {
-    type: DataTypes.DATE,
+    type: DataTypes.DATEONLY,
     allowNull: false   
   }
+}, {
+    timestamps: false
 });
 
 module.exports = Paciente;
