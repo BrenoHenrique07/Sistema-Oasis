@@ -1,7 +1,7 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const db = require('../db/connect');
 
-const Paciente = db.returnInstance().define('pacientes', {
+const Paciente = db.returnInstance().define('Paciente', {
   id: {
     type: DataTypes.BIGINT,
     autoIncrement: true,

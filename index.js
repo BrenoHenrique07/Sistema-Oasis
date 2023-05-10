@@ -2,9 +2,7 @@
 const express = require('express');
 const app = express();
 
-const teste = require('./src/paciente/model');
-const teste2 = require('./src/frequencia/model');
-const teste3 = require('./src/responsavel/model');
+require('./src/responsavel/model');
 
 const pacientes = require('./src/paciente/routes');
 app.use('/pacientes', pacientes);
