@@ -4,6 +4,12 @@ const app = express();
 
 require('./src/responsavel/model');
 
+app.use(express.json());
+app.use(express.urlencoded({
+    extended: true
+}));
+
+
 const pacientes = require('./src/paciente/routes');
 app.use('/pacientes', pacientes);
 
@@ -15,7 +21,7 @@ app.use('/responsaveis', responsaveis);
 
 const db = require('./src/db/connect');
 db.openConnection();
-db.syncDataBase();
+// db.syncDataBase();
 
 app.listen(3000, ()=>{
     console.log('Server is running');

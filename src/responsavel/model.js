@@ -24,6 +24,8 @@ const Responsavel = db.returnInstance().define('responsaveis', {
     type: DataTypes.STRING,
     allowNull: false   
   },
+}, {
+  timestamps: false
 });
 
 Responsavel.belongsTo(pacientes, { foreignKey: 'id_paciente' });
