@@ -1,7 +1,8 @@
 const {Sequelize} = require('sequelize');
+
 require('dotenv').config();
 
-const sequelize = new Sequelize(`postgres://${process.env.PG_USER}:${process.env.PG_PASSWORD}@localhost:5432/oasis`) 
+const sequelize = new Sequelize(`postgres://${process.env.PG_USER}:${process.env.PG_PASSWORD}@localhost:5432/oasis`); 
 
 function returnInstance(){
     return sequelize;
@@ -26,12 +27,18 @@ function closeConnection() {
 }
 
 async function syncDataBase() {
-    await sequelize.sync({ force: true });
+    let Paciente = require('../paciente/model');
+    let Frequencia = require('../frequencia/model');
+    let Responsavel = require('../responsavel/model');
+
+    await Paciente.sync();
+    await Frequencia.sync();
+    await Responsavel.sync();
 }
 
 module.exports = {
-    returnInstance,
+    syncDataBase,
     openConnection,
     closeConnection,
-    syncDataBase
-}
+    returnInstance
+};
