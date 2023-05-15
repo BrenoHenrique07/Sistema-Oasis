@@ -2,7 +2,7 @@ const { Sequelize, DataTypes } = require('sequelize');
 const db = require('../db/connect');
 
 const Paciente = db.returnInstance().define('paciente', {
-  id: {
+  id_paciente: {
     type: DataTypes.BIGINT,
     autoIncrement: true,
     primaryKey: true  
@@ -24,10 +24,6 @@ const Paciente = db.returnInstance().define('paciente', {
     allowNull: false   
   },
   doenca: {
-    type: DataTypes.STRING,
-    allowNull: false   
-  },
-  historico_doencas: {
     type: DataTypes.STRING,
     allowNull: false   
   },

@@ -30,10 +30,14 @@ async function syncDataBase() {
     let Paciente = require('../paciente/model');
     let Frequencia = require('../frequencia/model');
     let Responsavel = require('../responsavel/model');
+    let Doencas = require('../doencas/model');
+    let HistoricoDoencas = require('../historicoDoencas/model');
 
     await Paciente.sync();
     await Frequencia.sync();
     await Responsavel.sync();
+    await Doencas.sync();
+    await HistoricoDoencas.sync();
 }
 
 module.exports = {

@@ -3,7 +3,7 @@ const pacientes = require('../paciente/model');
 const db = require('../db/connect');
 
 const Responsavel = db.returnInstance().define('responsaveis', {
-  id: {
+  id__responsavel: {
     type: DataTypes.BIGINT,
     autoIncrement: true,
     primaryKey: true  

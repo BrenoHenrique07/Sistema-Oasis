@@ -3,7 +3,7 @@ const pacientes = require('../paciente/model');
 const db = require('../db/connect');
 
 const Frequencia = db.returnInstance().define('frequencia', {
-  id: {
+  id_frequencia: {
     type: DataTypes.BIGINT,
     autoIncrement: true,
     primaryKey: true  
