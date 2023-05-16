@@ -21,6 +21,6 @@ const Frequencia = db.returnInstance().define('frequencia', {
   timestamps: false
 });
 
-Frequencia.belongsTo(pacientes, { foreignKey: 'id_paciente' });
+Frequencia.belongsTo(pacientes, { foreignKey: 'id_paciente'});
 
 module.exports = Frequencia;

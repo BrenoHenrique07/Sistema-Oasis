@@ -4,7 +4,7 @@ const controller = require('./controller');
 
 router.get('/', controller.findAll);
 
-router.get('/:nome', controller.findById);
+router.get('/:nome', controller.findByName);
 
 router.post('/', controller.createPacient);
 

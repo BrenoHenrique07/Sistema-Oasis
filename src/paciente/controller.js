@@ -2,17 +2,18 @@ require('dotenv').config()
 const { json, QueryTypes } = require('sequelize');
 const db = require('../db/connect');
 const pacientes = require('../paciente/model');
+const responsaveis = require('../responsavel/model');
 
 async function findAll(req, res) {
     try {
-        const pacientesArray = await pacientes.findAll();
+        const pacientesArray = await pacientes.findAll({include: responsaveis});
         res.json(pacientesArray);
     } catch(err) {
         res.status(404).json({mensagem:' Erro ao buscar pacientes', erro: err.message});
     }
 }
 
-async function findById(req, res) {
+async function findByName(req, res) {
     try {
         const paciente = await db.returnInstance().query('SELECT * FROM pacientes WHERE nome = :nome', {
             replacements: {nome: `${req.params.nome}` || ''},
@@ -42,12 +43,18 @@ async function createPacient(req, res) {
 }
 
 async function alterPacient(req, res) {
+
     try {
         const verificacao = await pacientes.update({
-            nome: req.body.nome
+            nome: req.body.nome,
+            sobrenome: req.body.sobrenome,
+            cpf: req.body.cpf,
+            endereco: req.body.endereco,
+            doenca: req.body.doenca,
+            data_nascimento: req.body.data_nascimento
         },{
             where: {
-                id: req.params.id
+                id_paciente: req.params.id
             }
         });
 
@@ -75,7 +82,7 @@ async function deletePacient(req, res) {
 
 module.exports = {
     findAll,
-    findById,
+    findByName,
     createPacient,
     alterPacient,
     deletePacient
