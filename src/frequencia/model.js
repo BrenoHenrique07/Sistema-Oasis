@@ -1,5 +1,4 @@
 const { Sequelize, DataTypes } = require('sequelize');
-const pacientes = require('../paciente/model');
 const db = require('../db/connect');
 
 const Frequencia = db.returnInstance().define('frequencia', {
@@ -20,7 +19,5 @@ const Frequencia = db.returnInstance().define('frequencia', {
 }, {
   timestamps: false
 });
-
-Frequencia.belongsTo(pacientes, { foreignKey: 'id_paciente'});
 
 module.exports = Frequencia;

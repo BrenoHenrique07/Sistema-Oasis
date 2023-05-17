@@ -1,24 +1,15 @@
 const express = require('express');
 const router = express.Router();
+const controller = require('./controller');
 
-router.get('/', (req, res) => {
-    res.json('deu certo');
-});
+router.get('/', controller.findAll);
 
-router.get('/:id', () => {
+router.get('/:nome', controller.findByName);
 
-});
+router.post('/', controller.create);
 
-router.post('/', () => {
+router.put('/:id', controller.alter);
 
-});
-
-router.put('/:id', () => {
-
-});
-
-router.delete('/:id', () => {
-
-});
+router.delete('/:id', controller.remove);
 
 module.exports = router;

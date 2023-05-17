@@ -19,7 +19,6 @@ const responsaveis = require('./src/responsavel/routes');
 app.use('/responsaveis', responsaveis);
 
 const db = require('./src/db/connect');
-db.openConnection();
 db.syncDataBase();
 
 app.listen(3000, ()=>{

@@ -32,7 +32,9 @@ async function syncDataBase() {
     let Responsavel = require('../responsavel/model');
     let Doencas = require('../doencas/model');
     let HistoricoDoencas = require('../historicoDoencas/model');
+    let associations = require('../associations/associations');
 
+    associations.associations();
     await Paciente.sync();
     await Frequencia.sync();
     await Responsavel.sync();

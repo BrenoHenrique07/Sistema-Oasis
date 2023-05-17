@@ -1,6 +1,5 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const db = require('../db/connect');
-const responsaveis = require('../responsavel/model');
 
 const Paciente = db.returnInstance().define('paciente', {
   id_paciente: {
@@ -35,7 +34,5 @@ const Paciente = db.returnInstance().define('paciente', {
 }, {
     timestamps: false
 });
-
-Paciente.hasMany(responsaveis, { foreignKey: 'id_paciente' });
 
 module.exports = Paciente;

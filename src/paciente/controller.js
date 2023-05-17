@@ -25,7 +25,7 @@ async function findByName(req, res) {
     }
 }
 
-async function createPacient(req, res) {
+async function create(req, res) {
     try {
         const paciente = await pacientes.create({
             nome: req.body.nome,
@@ -42,7 +42,7 @@ async function createPacient(req, res) {
     }
 }
 
-async function alterPacient(req, res) {
+async function alter(req, res) {
 
     try {
         const verificacao = await pacientes.update({
@@ -69,7 +69,7 @@ async function alterPacient(req, res) {
     }
 }
 
-async function deletePacient(req, res) {
+async function remove(req, res) {
     try {
         const paciente = await pacientes.findByPk(req.params.id);
 
@@ -83,7 +83,7 @@ async function deletePacient(req, res) {
 module.exports = {
     findAll,
     findByName,
-    createPacient,
-    alterPacient,
-    deletePacient
+    create,
+    alter,
+    remove
 }
