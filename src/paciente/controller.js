@@ -1,8 +1,9 @@
 require('dotenv').config()
 const { json, QueryTypes } = require('sequelize');
-const db = require('../db/connect');
 const pacientes = require('../paciente/model');
 const responsaveis = require('../responsavel/model');
+const historico = require('../historicoDoencas/model');
+const db = require('../db/connect');
 
 async function findAll(req, res) {
     try {
@@ -15,10 +16,14 @@ async function findAll(req, res) {
 
 async function findByName(req, res) {
     try {
-        const paciente = await db.returnInstance().query('SELECT * FROM pacientes WHERE nome = :nome', {
-            replacements: {nome: `${req.params.nome}` || ''},
-            type: QueryTypes.SELECT
-        });
+        const paciente = await responsaveis.findAll(
+            {
+                include: pacientes,
+                where : {
+                    nome: req.params.nome
+                }
+            }
+        );
         res.json(paciente);
     } catch(err) {
         res.status(404).json({mensagem:' Erro ao buscar paciente', erro: err.message});
