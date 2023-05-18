@@ -1,4 +1,5 @@
 const { Sequelize, DataTypes } = require('sequelize');
+const Paciente = require('../paciente/model');
 const db = require('../db/connect');
 
 const Responsavel = db.returnInstance().define('responsaveis', {
@@ -26,5 +27,8 @@ const Responsavel = db.returnInstance().define('responsaveis', {
 }, {
   timestamps: false
 });
+
+Paciente.hasMany(Responsavel, { foreignKey: 'id_paciente', onDelete: 'RESTRICT' });
+Responsavel.belongsTo(Paciente, { foreignKey: 'id_paciente' });
 
 module.exports = Responsavel;

@@ -1,4 +1,3 @@
-
 const express = require('express');
 const app = express();
 
@@ -17,6 +16,9 @@ app.use('/frequencias', frequencias);
 
 const responsaveis = require('./src/responsavel/routes');
 app.use('/responsaveis', responsaveis);
+
+const doencas = require('./src/doencas/routes');
+app.use('/doencas', doencas);
 
 const db = require('./src/db/connect');
 db.syncDataBase();

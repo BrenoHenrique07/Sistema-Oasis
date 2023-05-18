@@ -1,8 +1,8 @@
 require('dotenv').config()
 const { json, QueryTypes } = require('sequelize');
-const db = require('../db/connect');
 const responsaveis = require('../responsavel/model');
 const pacientes = require('../paciente/model');
+const db = require('../db/connect');
 
 async function findAll(req, res) {
     try {
@@ -15,11 +15,13 @@ async function findAll(req, res) {
 
 async function findByName(req, res) {
     try {
-        const query = 'SELECT responsaveis.nome, responsaveis.sobrenome, responsaveis.cpf, responsaveis.rg, pacientes.nome AS pacientes_nome, pacientes.sobrenome AS pacientes_sobrenome, pacientes.cpf AS pacientes_cpf FROM responsaveis INNER JOIN pacientes ON pacientes.id_paciente = responsaveis.id_paciente WHERE responsaveis.nome = :nome';
-        const responsavel = await db.returnInstance().query(query, {
-            replacements: {nome: `${req.params.nome}` || ''},
-            type: QueryTypes.SELECT
-        });
+        const responsavel = await responsaveis.findAll(
+            {
+                include: pacientes,
+                where : {
+                    nome: req.params.nome
+                }
+            });
         res.json(responsavel);
     } catch(err) {
         res.status(404).json({mensagem:' Erro ao buscar responsável', erro: err.message});
