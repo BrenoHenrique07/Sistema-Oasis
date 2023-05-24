@@ -12,11 +12,11 @@ app.use('/pacientes', pacientes);
 const responsaveis = require('./routes/responsaveisRouter');
 app.use('/responsaveis', responsaveis);
 
-// const frequencias = require('./src/frequencia/routes');
-// app.use('/frequencias', frequencias);
+const frequencias = require('./routes/frequenciaRoutes');
+app.use('/frequencias', frequencias);
 
-// const doencas = require('./src/doencas/routes');
-// app.use('/doencas', doencas);
+const doencas = require('./routes/doencasRoutes');
+app.use('/doencas', doencas);
 
 app.listen(3000, ()=>{
     console.log('Server is running');

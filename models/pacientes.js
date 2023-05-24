@@ -14,6 +14,10 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "id",
         as: 'responsavel',
       });
+      pacientes.belongsTo(models.frequencia, {
+        foreignKey: "id",
+        as: 'frequencia',
+      });
     }
   }
   pacientes.init({
