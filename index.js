@@ -1,27 +1,22 @@
 const express = require('express');
 const app = express();
 
-require('./src/responsavel/model');
-
 app.use(express.json());
 app.use(express.urlencoded({
     extended: true
 }));
 
-const pacientes = require('./src/paciente/routes');
+const pacientes = require('./routes/pacientesRoutes');
 app.use('/pacientes', pacientes);
 
-const frequencias = require('./src/frequencia/routes');
-app.use('/frequencias', frequencias);
-
-const responsaveis = require('./src/responsavel/routes');
+const responsaveis = require('./routes/responsaveisRouter');
 app.use('/responsaveis', responsaveis);
 
-const doencas = require('./src/doencas/routes');
-app.use('/doencas', doencas);
+// const frequencias = require('./src/frequencia/routes');
+// app.use('/frequencias', frequencias);
 
-const db = require('./src/db/connect');
-db.syncDataBase();
+// const doencas = require('./src/doencas/routes');
+// app.use('/doencas', doencas);
 
 app.listen(3000, ()=>{
     console.log('Server is running');

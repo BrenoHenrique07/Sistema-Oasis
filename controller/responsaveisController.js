@@ -1,23 +1,34 @@
-require('dotenv').config()
-const { json, QueryTypes } = require('sequelize');
-const responsaveis = require('../responsavel/model');
-const pacientes = require('../paciente/model');
-const db = require('../db/connect');
+const database = require('../models');
+const { Op } = require('sequelize');
 
 async function findAll(req, res) {
     try {
-        const responsaveisArray = await responsaveis.findAll({include: pacientes});
+        const responsaveisArray = await database.responsaveis.findAll({
+            include: {
+                model: database.pacientes,
+                as: 'paciente',
+                on: {
+                    '$responsaveis.pacienteId$': { [Op.col]: 'paciente.id' }
+                }
+            }
+        });
         res.json(responsaveisArray);
     } catch(err) {
-        res.status(404).json({mensagem:' Erro ao buscar responséveis', erro: err.message});
+        res.status(404).json({mensagem:' Erro ao buscar responsáveis', erro: err.message});
     }
 }
 
 async function findByName(req, res) {
     try {
-        const responsavel = await responsaveis.findAll(
-            {
-                include: pacientes,
+        const responsavel = await database.responsaveis.findAll(
+            {   
+                include: {
+                    model: database.pacientes,
+                    as: 'paciente',
+                    on: {
+                        '$responsaveis.pacienteId$': { [Op.col]: 'paciente.id' }
+                    }
+                },                
                 where : {
                     nome: req.params.nome
                 }
@@ -30,12 +41,12 @@ async function findByName(req, res) {
 
 async function create(req, res) {
     try {
-        const responsavel = await responsaveis.create({
+        const responsavel = await database.responsaveis.create({
             nome: req.body.nome,
             sobrenome: req.body.sobrenome,
             cpf: req.body.cpf,
             rg: req.body.rg,
-            id_paciente: req.body.id_paciente
+            pacienteId: req.body.pacienteId
         });
         
         res.json(responsavel);
@@ -47,19 +58,19 @@ async function create(req, res) {
 async function alter(req, res) {
 
     try {
-        const verificacao = await responsaveis.update({
+        const verificacao = await database.responsaveis.update({
             nome: req.body.nome,
             sobrenome: req.body.sobrenome,
             cpf: req.body.cpf,
             rg: req.body.rg
         },{
             where: {
-                id_responsavel: req.params.id
+                id: req.params.id
             }
         });
 
         if(verificacao > 0) {
-            const responsavel = await responsaveis.findByPk(req.params.id);
+            const responsavel = await database.responsaveis.findByPk(req.params.id);
             res.json(responsavel);
         } else {
             res.json({mensagem: "Responsável inexistente"});
@@ -71,7 +82,7 @@ async function alter(req, res) {
 
 async function remove(req, res) {
     try {
-        const responsavel = await responsaveis.findByPk(req.params.id);
+        const responsavel = await database.responsaveis.findByPk(req.params.id);
 
         res.json({mensagem: `${responsavel.nome} excluído com sucesso`});
         responsavel.destroy();

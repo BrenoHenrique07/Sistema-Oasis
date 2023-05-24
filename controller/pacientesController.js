@@ -1,13 +1,17 @@
-require('dotenv').config()
-const { json, QueryTypes } = require('sequelize');
-const pacientes = require('../paciente/model');
-const responsaveis = require('../responsavel/model');
-const historico = require('../historicoDoencas/model');
-const db = require('../db/connect');
+const database = require('../models');
+const { Op } = require('sequelize');
 
 async function findAll(req, res) {
     try {
-        const pacientesArray = await pacientes.findAll({include: responsaveis});
+        const pacientesArray = await database.pacientes.findAll({
+            include: {
+                model: database.responsaveis,
+                as: 'responsavel',
+                on: {
+                    '$pacientes.id$': { [Op.col]: 'responsavel.pacienteId' }
+                }
+            }
+        });
         res.json(pacientesArray);
     } catch(err) {
         res.status(404).json({mensagem:' Erro ao buscar pacientes', erro: err.message});
@@ -16,9 +20,15 @@ async function findAll(req, res) {
 
 async function findByName(req, res) {
     try {
-        const paciente = await responsaveis.findAll(
-            {
-                include: pacientes,
+        const paciente = await database.pacientes.findAll(
+            {   
+                include: {
+                    model: database.responsaveis,
+                    as: 'responsavel',
+                    on: {
+                        '$pacientes.id$': { [Op.col]: 'responsavel.pacienteId' }
+                    }
+                },
                 where : {
                     nome: req.params.nome
                 }
@@ -31,8 +41,9 @@ async function findByName(req, res) {
 }
 
 async function create(req, res) {
+    
     try {
-        const paciente = await pacientes.create({
+        const paciente = await database.pacientes.create({
             nome: req.body.nome,
             sobrenome: req.body.sobrenome,
             cpf: req.body.cpf,
@@ -50,7 +61,7 @@ async function create(req, res) {
 async function alter(req, res) {
 
     try {
-        const verificacao = await pacientes.update({
+        const verificacao = await database.pacientes.update({
             nome: req.body.nome,
             sobrenome: req.body.sobrenome,
             cpf: req.body.cpf,
@@ -59,12 +70,12 @@ async function alter(req, res) {
             data_nascimento: req.body.data_nascimento
         },{
             where: {
-                id_paciente: req.params.id
+                id: req.params.id
             }
         });
 
         if(verificacao > 0) {
-            const paciente = await pacientes.findByPk(req.params.id);
+            const paciente = await database.pacientes.findByPk(req.params.id);
             res.json(paciente);
         } else {
             res.json({mensagem: "Paciente inexistente"});
@@ -76,7 +87,7 @@ async function alter(req, res) {
 
 async function remove(req, res) {
     try {
-        const paciente = await pacientes.findByPk(req.params.id);
+        const paciente = await database.pacientes.findByPk(req.params.id);
 
         res.json({mensagem: `${paciente.nome} excluído com sucesso`});
         paciente.destroy();
