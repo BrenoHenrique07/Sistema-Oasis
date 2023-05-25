@@ -18,6 +18,10 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "id",
         as: 'frequencia',
       });
+      pacientes.belongsTo(models.historicoDoencas, {
+        foreignKey: "id",
+        as: 'historico',
+      });
     }
   }
   pacientes.init({
@@ -25,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
     sobrenome: DataTypes.STRING,
     cpf: DataTypes.STRING,
     endereco: DataTypes.STRING,
-    data_nascimento: DataTypes.DATEONLY
+    dataNascimento: DataTypes.DATEONLY
   }, {
     sequelize,
     modelName: 'pacientes',

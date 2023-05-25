@@ -14,7 +14,7 @@ async function findAll(req, res) {
         });
         res.json(responsaveisArray);
     } catch(err) {
-        res.status(404).json({mensagem:' Erro ao buscar responsáveis', erro: err.message});
+        res.status(500).json({mensagem:' Erro ao buscar responsáveis', erro: err.message});
     }
 }
 
@@ -35,7 +35,7 @@ async function findByName(req, res) {
             });
         res.json(responsavel);
     } catch(err) {
-        res.status(404).json({mensagem:' Erro ao buscar responsável', erro: err.message});
+        res.status(500).json({mensagem:' Erro ao buscar responsável', erro: err.message});
     }
 }
 
@@ -51,7 +51,7 @@ async function create(req, res) {
         
         res.json(responsavel);
     } catch(err) {
-        res.status(404).json({mensagem:' Erro ao criar responsável', erro: err.message});
+        res.status(500).json({mensagem:' Erro ao criar responsável', erro: err.message});
     }
 }
 
@@ -76,7 +76,7 @@ async function alter(req, res) {
             res.json({mensagem: "Responsável inexistente"});
         }
     } catch(err) {
-        res.status(404).json({mensagem:' Erro ao buscar responsável', erro: err.message});
+        res.status(500).json({mensagem:' Erro ao buscar responsável', erro: err.message});
     }
 }
 
@@ -87,7 +87,7 @@ async function remove(req, res) {
         res.json({mensagem: `${responsavel.nome} excluído com sucesso`});
         responsavel.destroy();
     } catch(err) {
-        res.status(404).json({mensagem:' Erro ao buscar responsável', erro: err.message});
+        res.status(500).json({mensagem:' Erro ao buscar responsável', erro: err.message});
     }
 }
 

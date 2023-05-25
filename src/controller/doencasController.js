@@ -5,7 +5,7 @@ async function findAll(req, res) {
         const doencasArray = await database.doencas.findAll();
         res.json(doencasArray);
     } catch(err) {
-        res.status(404).json({mensagem:' Erro ao buscar doenças', erro: err.message});
+        res.status(500).json({mensagem:' Erro ao buscar doenças', erro: err.message});
     }
 }
 
@@ -20,7 +20,7 @@ async function findByName(req, res) {
         );
         res.json(doenca);
     } catch(err) {
-        res.status(404).json({mensagem:' Erro ao buscar doenças', erro: err.message});
+        res.status(500).json({mensagem:' Erro ao buscar doenças', erro: err.message});
     }
 }
 
@@ -32,7 +32,7 @@ async function create(req, res) {
         
         res.json(doenca);
     } catch(err) {
-        res.status(404).json({mensagem:' Erro ao criar doença', erro: err.message});
+        res.status(500).json({mensagem:' Erro ao criar doença', erro: err.message});
     }
 }
 
@@ -54,7 +54,7 @@ async function alter(req, res) {
             res.json({mensagem: "Doença inexistente"});
         }
     } catch(err) {
-        res.status(404).json({mensagem:' Erro ao buscar doença', erro: err.message});
+        res.status(500).json({mensagem:' Erro ao buscar doença', erro: err.message});
     }
 }
 
@@ -65,7 +65,7 @@ async function remove(req, res) {
         res.json({mensagem: `${doenca.nome} excluído com sucesso`});
         doenca.destroy();
     } catch(err) {
-        res.status(404).json({mensagem:' Erro ao buscar doença', erro: err.message});
+        res.status(500).json({mensagem:' Erro ao buscar doença', erro: err.message});
     }
 }
 

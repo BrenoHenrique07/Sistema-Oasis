@@ -1,10 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const controller = require('../controller/frequenciaController');
+const controller = require('../controller/historicoController');
 
-router.get('/', controller.findAll);
-
-router.get('/:nome', controller.findByName);
+router.get('/:id', controller.findById);
 
 router.post('/', controller.create);
 

@@ -14,7 +14,7 @@ async function findAll(req, res) {
         });
         res.json(pacientesArray);
     } catch(err) {
-        res.status(404).json({mensagem:' Erro ao buscar pacientes', erro: err.message});
+        res.status(500).json({mensagem:' Erro ao buscar pacientes', erro: err.message});
     }
 }
 
@@ -36,7 +36,7 @@ async function findByName(req, res) {
         );
         res.json(paciente);
     } catch(err) {
-        res.status(404).json({mensagem:' Erro ao buscar paciente', erro: err.message});
+        res.status(500).json({mensagem:' Erro ao buscar paciente', erro: err.message});
     }
 }
 
@@ -49,12 +49,12 @@ async function create(req, res) {
             cpf: req.body.cpf,
             endereco: req.body.endereco,
             doenca: req.body.doenca,
-            data_nascimento: req.body.data_nascimento
+            dataNascimento: req.body.dataNascimento
         });
         
         res.json(paciente);
     } catch(err) {
-        res.status(404).json({mensagem:' Erro ao criar paciente', erro: err.message});
+        res.status(500).json({mensagem:' Erro ao criar paciente', erro: err.message});
     }
 }
 
@@ -67,7 +67,7 @@ async function alter(req, res) {
             cpf: req.body.cpf,
             endereco: req.body.endereco,
             doenca: req.body.doenca,
-            data_nascimento: req.body.data_nascimento
+            dataNascimento: req.body.dataNascimento
         },{
             where: {
                 id: req.params.id
@@ -81,7 +81,7 @@ async function alter(req, res) {
             res.json({mensagem: "Paciente inexistente"});
         }
     } catch(err) {
-        res.status(404).json({mensagem:' Erro ao buscar paciente', erro: err.message});
+        res.status(500).json({mensagem:' Erro ao buscar paciente', erro: err.message});
     }
 }
 
@@ -92,7 +92,7 @@ async function remove(req, res) {
         res.json({mensagem: `${paciente.nome} excluído com sucesso`});
         paciente.destroy();
     } catch(err) {
-        res.status(404).json({mensagem:' Erro ao buscar paciente', erro: err.message});
+        res.status(500).json({mensagem:' Erro ao buscar paciente', erro: err.message});
     }
 }
 
