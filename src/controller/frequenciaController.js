@@ -61,8 +61,10 @@ async function remove(req, res) {
             }
         })
 
+        frequenciaArray.forEach(element => {
+            element.destroy();
+        });
         res.json({mensagem: `Frequência ${paciente.nome} excluído com sucesso`});
-        frequenciaArray.destroy();
     } catch(err) {
         res.status(500).json({mensagem:' Erro ao buscar paciente', erro: err.message});
     }

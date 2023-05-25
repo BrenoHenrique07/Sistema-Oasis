@@ -44,8 +44,10 @@ async function remove(req, res) {
             }
         })
 
+        historicoArray.forEach(element => {
+            element.destroy();
+        });
         res.json({mensagem: `Histórico ${paciente.nome} excluído com sucesso`});
-        historicoArray.destroy();
     } catch(err) {
         res.status(500).json({mensagem:' Erro ao buscar paciente', erro: err.message});
     }
