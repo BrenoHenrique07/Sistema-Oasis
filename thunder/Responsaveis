@@ -1,0 +1,101 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Api Oasis | Responsaveis",
+    "dateExported": "2023-06-03T04:13:11.910Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "bd0a8f57-4723-4765-ae4d-4320b5351cc3",
+            "colId": "c4414236-4a2f-4b57-aa6a-cb4994512098",
+            "containerId": "",
+            "name": "Responsavel",
+            "url": "http://localhost:3000/responsaveis",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-06-03T03:30:25.628Z",
+            "modified": "2023-06-03T03:30:25.628Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nome\": \"melote2\",\n  \"sobrenome\": \"caio2\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjg1NzYyNjQyLCJleHAiOjE2ODU3NjMyNDJ9.55Y1AuyhSzQcaPkPnmL3Art3fTA98Ggz5LaruOvzcjA"
+            },
+            "tests": []
+        },
+        {
+            "_id": "14dd3ab7-1b73-44e1-8f8c-0587f8e8fbd3",
+            "colId": "c4414236-4a2f-4b57-aa6a-cb4994512098",
+            "containerId": "",
+            "name": "Responsavel",
+            "url": "http://localhost:3000/responsaveis",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-06-03T03:31:30.431Z",
+            "modified": "2023-06-03T03:31:30.431Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nome\": \"melotePai\",\n  \"sobrenome\": \"teste\",\n  \"cpf\": \"38293802\",\n  \"rg\": \"fafafa\",\n  \"pacienteId\": 3\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjg1NzYyNjQyLCJleHAiOjE2ODU3NjMyNDJ9.55Y1AuyhSzQcaPkPnmL3Art3fTA98Ggz5LaruOvzcjA"
+            },
+            "tests": []
+        },
+        {
+            "_id": "2bd07342-647c-45de-962e-e8ccfae1ba32",
+            "colId": "c4414236-4a2f-4b57-aa6a-cb4994512098",
+            "containerId": "",
+            "name": "Responsavel",
+            "url": "http://localhost:3000/responsaveis/2",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2023-06-03T03:32:01.088Z",
+            "modified": "2023-06-03T03:32:01.088Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nome\": \"Carlin\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjg1NzYyNjQyLCJleHAiOjE2ODU3NjMyNDJ9.55Y1AuyhSzQcaPkPnmL3Art3fTA98Ggz5LaruOvzcjA"
+            },
+            "tests": []
+        },
+        {
+            "_id": "9965781e-6955-45fe-a4f3-19a67b4c963a",
+            "colId": "c4414236-4a2f-4b57-aa6a-cb4994512098",
+            "containerId": "",
+            "name": "Responsavel",
+            "url": "http://localhost:3000/responsaveis/2",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2023-06-03T03:32:22.910Z",
+            "modified": "2023-06-03T03:32:22.910Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nome\": \"Carlin\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjg1NzYyNjQyLCJleHAiOjE2ODU3NjMyNDJ9.55Y1AuyhSzQcaPkPnmL3Art3fTA98Ggz5LaruOvzcjA"
+            },
+            "tests": []
+        }
+    ]
+}

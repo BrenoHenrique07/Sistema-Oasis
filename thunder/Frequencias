@@ -1,0 +1,124 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Api Oasis | Frequencias",
+    "dateExported": "2023-06-03T04:13:19.198Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "94e1d6c7-5624-4b04-ba2b-4e9f0883bef4",
+            "colId": "2ee2c866-70dd-4eb9-abeb-068a60fb1698",
+            "containerId": "",
+            "name": "Frequencia",
+            "url": "http://localhost:3000/frequencias",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-06-03T03:35:21.559Z",
+            "modified": "2023-06-03T03:35:21.559Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"brenohenriquess123@gmail.com\",\n  \"senha\": \"Slts#7804\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg1NzYzMjc1LCJleHAiOjE2ODU3NjM4NzV9.7IPr9dvFs8TwBu_TnDKrRh7QnycN12p1KURGXh2lnLI"
+            },
+            "tests": []
+        },
+        {
+            "_id": "1b91e397-82ab-490e-93e4-a4209df58588",
+            "colId": "2ee2c866-70dd-4eb9-abeb-068a60fb1698",
+            "containerId": "",
+            "name": "Frequencia",
+            "url": "http://localhost:3000/frequencias/1",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-06-03T03:36:10.968Z",
+            "modified": "2023-06-03T03:36:10.968Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"brenohenriquess123@gmail.com\",\n  \"senha\": \"Slts#7804\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg1NzYzMjc1LCJleHAiOjE2ODU3NjM4NzV9.7IPr9dvFs8TwBu_TnDKrRh7QnycN12p1KURGXh2lnLI"
+            },
+            "tests": []
+        },
+        {
+            "_id": "4dbc3bb0-609a-402c-8862-3fcad0446b99",
+            "colId": "2ee2c866-70dd-4eb9-abeb-068a60fb1698",
+            "containerId": "",
+            "name": "Frequencia",
+            "url": "http://localhost:3000/frequencias",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-06-03T03:37:36.472Z",
+            "modified": "2023-06-03T03:37:36.472Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"pacienteId\": 3\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg1NzYzMjc1LCJleHAiOjE2ODU3NjM4NzV9.7IPr9dvFs8TwBu_TnDKrRh7QnycN12p1KURGXh2lnLI"
+            },
+            "tests": []
+        },
+        {
+            "_id": "3dae2f19-80f6-419e-8bd0-95e334a3586b",
+            "colId": "2ee2c866-70dd-4eb9-abeb-068a60fb1698",
+            "containerId": "",
+            "name": "Frequencia",
+            "url": "http://localhost:3000/frequencias",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2023-06-03T03:37:47.535Z",
+            "modified": "2023-06-03T03:37:47.535Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"pacienteId\": 3\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg1NzYzMjc1LCJleHAiOjE2ODU3NjM4NzV9.7IPr9dvFs8TwBu_TnDKrRh7QnycN12p1KURGXh2lnLI"
+            },
+            "tests": []
+        },
+        {
+            "_id": "ca76089f-8fba-4576-8fad-f57887cd0fcd",
+            "colId": "2ee2c866-70dd-4eb9-abeb-068a60fb1698",
+            "containerId": "",
+            "name": "Frequencia",
+            "url": "http://localhost:3000/frequencias/3",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2023-06-03T03:40:26.879Z",
+            "modified": "2023-06-03T03:40:26.879Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"pacienteId\": 3\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg1NzYzMjc1LCJleHAiOjE2ODU3NjM4NzV9.7IPr9dvFs8TwBu_TnDKrRh7QnycN12p1KURGXh2lnLI"
+            },
+            "tests": []
+        }
+    ]
+}

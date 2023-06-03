@@ -1,0 +1,73 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Api Oasis | Historico",
+    "dateExported": "2023-06-03T04:13:35.702Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "a33a2229-a480-4ed4-a406-57208908cd31",
+            "colId": "a806cefc-2e3c-4b37-bb06-27263522f8fb",
+            "containerId": "",
+            "name": "Historico",
+            "url": "http://localhost:3000/historico/1",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-06-03T03:48:42.499Z",
+            "modified": "2023-06-03T03:48:42.499Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg1NzYzODE1LCJleHAiOjE2ODU3NjQ0MTV9.YfNVcU4aLa1xIPmH814UnTQu3tA6fBqZB4Jo1jGetjU"
+            },
+            "tests": []
+        },
+        {
+            "_id": "3ac21232-4af0-4250-9baf-3ae580116798",
+            "colId": "a806cefc-2e3c-4b37-bb06-27263522f8fb",
+            "containerId": "",
+            "name": "Historico",
+            "url": "http://localhost:3000/historico",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-06-03T03:49:48.151Z",
+            "modified": "2023-06-03T03:49:48.151Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"pacienteId\": \"1\",\n  \"doencaId\": \"1\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg1NzYzODE1LCJleHAiOjE2ODU3NjQ0MTV9.YfNVcU4aLa1xIPmH814UnTQu3tA6fBqZB4Jo1jGetjU"
+            },
+            "tests": []
+        },
+        {
+            "_id": "f57b8ba1-62db-481e-89a9-7ae181e1a7a9",
+            "colId": "a806cefc-2e3c-4b37-bb06-27263522f8fb",
+            "containerId": "",
+            "name": "Historico",
+            "url": "http://localhost:3000/historico/1",
+            "method": "DELETE",
+            "sortNum": 30000,
+            "created": "2023-06-03T03:50:16.608Z",
+            "modified": "2023-06-03T03:50:16.608Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"pacienteId\": \"1\",\n  \"doencaId\": \"1\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg1NzYzODE1LCJleHAiOjE2ODU3NjQ0MTV9.YfNVcU4aLa1xIPmH814UnTQu3tA6fBqZB4Jo1jGetjU"
+            },
+            "tests": []
+        }
+    ]
+}

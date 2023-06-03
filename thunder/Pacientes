@@ -1,0 +1,101 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Api Oasis | Pacientes",
+    "dateExported": "2023-06-03T04:13:02.318Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "9ba6f170-5f85-4041-b211-8f59d421456f",
+            "colId": "55e63dd4-2d4f-4729-a442-d3bf6fab9047",
+            "containerId": "",
+            "name": "Pacientes",
+            "url": "http://localhost:3000/pacientes",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-06-03T03:24:42.070Z",
+            "modified": "2023-06-03T03:24:42.070Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"caio@gmail.com\",\n  \"senha\": \"12345\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjg1NzYyNjQyLCJleHAiOjE2ODU3NjMyNDJ9.55Y1AuyhSzQcaPkPnmL3Art3fTA98Ggz5LaruOvzcjA"
+            },
+            "tests": []
+        },
+        {
+            "_id": "de8ec741-35f6-40cd-97cd-6a58d68c6f16",
+            "colId": "55e63dd4-2d4f-4729-a442-d3bf6fab9047",
+            "containerId": "",
+            "name": "Pacientes",
+            "url": "http://localhost:3000/pacientes",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-06-03T03:26:03.576Z",
+            "modified": "2023-06-03T03:26:03.576Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nome\": \"melote\",\n  \"sobrenome\": \"caio\",\n  \"cpf\": \"38293802\",\n  \"endereco\": \"Endereco teste\",\n  \"doenca\": \"gripe\",\n  \"dataNascimento\": \"2023-03-03\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjg1NzYyNjQyLCJleHAiOjE2ODU3NjMyNDJ9.55Y1AuyhSzQcaPkPnmL3Art3fTA98Ggz5LaruOvzcjA"
+            },
+            "tests": []
+        },
+        {
+            "_id": "f992753a-d58b-4fb4-833c-c322a4fdde97",
+            "colId": "55e63dd4-2d4f-4729-a442-d3bf6fab9047",
+            "containerId": "",
+            "name": "Paciente",
+            "url": "http://localhost:3000/pacientes/1",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2023-06-03T03:27:27.808Z",
+            "modified": "2023-06-03T03:27:27.808Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nome\": \"melote2\",\n  \"sobrenome\": \"caio2\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjg1NzYyNjQyLCJleHAiOjE2ODU3NjMyNDJ9.55Y1AuyhSzQcaPkPnmL3Art3fTA98Ggz5LaruOvzcjA"
+            },
+            "tests": []
+        },
+        {
+            "_id": "6ed0b256-9448-4b8c-92f8-8b60401de81e",
+            "colId": "55e63dd4-2d4f-4729-a442-d3bf6fab9047",
+            "containerId": "",
+            "name": "Paciente",
+            "url": "http://localhost:3000/pacientes/1",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2023-06-03T03:28:20.032Z",
+            "modified": "2023-06-03T03:28:20.032Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nome\": \"melote2\",\n  \"sobrenome\": \"caio2\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjg1NzYyNjQyLCJleHAiOjE2ODU3NjMyNDJ9.55Y1AuyhSzQcaPkPnmL3Art3fTA98Ggz5LaruOvzcjA"
+            },
+            "tests": []
+        }
+    ]
+}

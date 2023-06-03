@@ -1,0 +1,119 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Api Oasis | Doencas",
+    "dateExported": "2023-06-03T04:13:30.006Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "f12d4dc7-f7b1-436b-b241-0ae21c0af5c0",
+            "colId": "8bce4d3c-5a9f-43ef-9667-77d53ca408f4",
+            "containerId": "",
+            "name": "Doenca",
+            "url": "http://localhost:3000/doencas",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-06-03T03:44:10.221Z",
+            "modified": "2023-06-03T03:44:10.221Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n  \"email\": \"brenohenriquess123@gmail.com\",\r\n  \"senha\": \"Slts#7804\"\r\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg1NzYzODE1LCJleHAiOjE2ODU3NjQ0MTV9.YfNVcU4aLa1xIPmH814UnTQu3tA6fBqZB4Jo1jGetjU"
+            },
+            "tests": []
+        },
+        {
+            "_id": "c1d45f8d-8618-49b9-9bcc-f490ccf8e065",
+            "colId": "8bce4d3c-5a9f-43ef-9667-77d53ca408f4",
+            "containerId": "",
+            "name": "Doenca",
+            "url": "http://localhost:3000/doencas/H1N1",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-06-03T03:44:42.792Z",
+            "modified": "2023-06-03T03:44:42.792Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n  \"email\": \"brenohenriquess123@gmail.com\",\r\n  \"senha\": \"Slts#7804\"\r\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg1NzYzODE1LCJleHAiOjE2ODU3NjQ0MTV9.YfNVcU4aLa1xIPmH814UnTQu3tA6fBqZB4Jo1jGetjU"
+            },
+            "tests": []
+        },
+        {
+            "_id": "4995fd21-8e13-46ce-bd11-c3c5a79cae88",
+            "colId": "8bce4d3c-5a9f-43ef-9667-77d53ca408f4",
+            "containerId": "",
+            "name": "Doenca",
+            "url": "http://localhost:3000/doencas",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-06-03T03:45:22.447Z",
+            "modified": "2023-06-03T03:45:22.447Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n  \"nome\": \"Malaria\"\r\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg1NzYzODE1LCJleHAiOjE2ODU3NjQ0MTV9.YfNVcU4aLa1xIPmH814UnTQu3tA6fBqZB4Jo1jGetjU"
+            },
+            "tests": []
+        },
+        {
+            "_id": "1f437250-4c14-48f1-a43d-f5a217dd0b15",
+            "colId": "8bce4d3c-5a9f-43ef-9667-77d53ca408f4",
+            "containerId": "",
+            "name": "Doenca",
+            "url": "http://localhost:3000/doencas/1",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2023-06-03T03:45:57.960Z",
+            "modified": "2023-06-03T03:45:57.960Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n  \"nome\": \"gripe suina\"\r\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg1NzYzODE1LCJleHAiOjE2ODU3NjQ0MTV9.YfNVcU4aLa1xIPmH814UnTQu3tA6fBqZB4Jo1jGetjU"
+            },
+            "tests": []
+        },
+        {
+            "_id": "1f21827b-9e50-42f5-ba67-1744e1d9769d",
+            "colId": "8bce4d3c-5a9f-43ef-9667-77d53ca408f4",
+            "containerId": "",
+            "name": "Doenca",
+            "url": "http://localhost:3000/doencas/2",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2023-06-03T03:46:32.767Z",
+            "modified": "2023-06-03T03:46:32.768Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg1NzYzODE1LCJleHAiOjE2ODU3NjQ0MTV9.YfNVcU4aLa1xIPmH814UnTQu3tA6fBqZB4Jo1jGetjU"
+            },
+            "tests": []
+        }
+    ]
+}
