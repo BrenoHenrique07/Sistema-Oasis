@@ -14,7 +14,7 @@ async function findById(req, res) {
                 pacienteId: req.params.id
             }
         });
-        res.json(pacientesArray);
+        res.status(200).json(pacientesArray);
     } catch(err) {
         res.status(500).json({mensagem:' Erro ao buscar histórico do paciente', erro: err.message});
     }
@@ -27,7 +27,7 @@ async function create(req, res) {
             doencaId: req.body.doencaId
         });
         
-        res.json(paciente);
+        res.status(200).json(paciente);
     } catch(err) {
         res.status(500).json({mensagem:' Erro ao criar histórico do paciente', erro: err.message});
     }
@@ -47,7 +47,7 @@ async function remove(req, res) {
         historicoArray.forEach(element => {
             element.destroy();
         });
-        res.json({mensagem: `Histórico ${paciente.nome} excluído com sucesso`});
+        res.status(200).json({mensagem: `Histórico ${paciente.nome} excluído com sucesso`});
     } catch(err) {
         res.status(500).json({mensagem:' Erro ao buscar paciente', erro: err.message});
     }

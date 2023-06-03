@@ -12,7 +12,7 @@ async function findAll(req, res) {
                 }
             }
         });
-        res.json(pacientesArray);
+        res.status(200).json(pacientesArray);
     } catch(err) {
         res.status(500).json({mensagem:' Erro ao buscar pacientes', erro: err.message});
     }
@@ -34,7 +34,7 @@ async function findByName(req, res) {
                 }
             }
         );
-        res.json(paciente);
+        res.status(200).json(paciente);
     } catch(err) {
         res.status(500).json({mensagem:' Erro ao buscar paciente', erro: err.message});
     }
@@ -52,7 +52,7 @@ async function create(req, res) {
             dataNascimento: req.body.dataNascimento
         });
         
-        res.json(paciente);
+        res.status(200).json(paciente);
     } catch(err) {
         res.status(500).json({mensagem:' Erro ao criar paciente', erro: err.message});
     }
@@ -76,9 +76,9 @@ async function alter(req, res) {
 
         if(verificacao > 0) {
             const paciente = await database.pacientes.findByPk(req.params.id);
-            res.json(paciente);
+            res.status(200).json(paciente);
         } else {
-            res.json({mensagem: "Paciente inexistente"});
+            res.status(200).json({mensagem: "Paciente inexistente"});
         }
     } catch(err) {
         res.status(500).json({mensagem:' Erro ao buscar paciente', erro: err.message});
@@ -89,7 +89,7 @@ async function remove(req, res) {
     try {
         const paciente = await database.pacientes.findByPk(req.params.id);
 
-        res.json({mensagem: `${paciente.nome} excluído com sucesso`});
+        res.status(200).json({mensagem: `${paciente.nome} excluído com sucesso`});
         paciente.destroy();
     } catch(err) {
         res.status(500).json({mensagem:' Erro ao buscar paciente', erro: err.message});

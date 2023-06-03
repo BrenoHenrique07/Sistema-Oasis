@@ -12,7 +12,7 @@ async function findAll(req, res) {
                 }
             }
         });
-        res.json(frequenciaArray);
+        res.status(200).json(frequenciaArray);
     } catch(err) {
         res.status(500).json({mensagem:' Erro ao buscar frequencias', erro: err.message});
     }
@@ -34,7 +34,7 @@ async function findById(req, res) {
                 }
             }
         );
-        res.json(paciente);
+        res.status(200).json(paciente);
     } catch(err) {
         res.status(500).json({mensagem:' Erro ao buscar paciente', erro: err.message});
     }
@@ -47,7 +47,7 @@ async function create(req, res) {
             pacienteId: req.body.pacienteId
         });
         
-        res.json(frequencia);
+        res.status(200).json(frequencia);
     } catch(err) {
         res.status(500).json({mensagem:' Erro ao criar frequencia', erro: err.message});
     }
@@ -64,7 +64,7 @@ async function remove(req, res) {
         frequenciaArray.forEach(element => {
             element.destroy();
         });
-        res.json({mensagem: `Frequência ${paciente.nome} excluído com sucesso`});
+        res.status(200).json({mensagem: `Frequência excluído com sucesso`});
     } catch(err) {
         res.status(500).json({mensagem:' Erro ao buscar paciente', erro: err.message});
     }

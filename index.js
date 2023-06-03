@@ -6,6 +6,12 @@ app.use(express.urlencoded({
     extended: true
 }));
 
+const usuarios = require('./src/routes/usuarioRoutes');
+app.use('/', usuarios);
+
+const authMiddleware = require('./src/middlewares/auth');
+app.use(authMiddleware.eAdmin);
+
 const pacientes = require('./src/routes/pacientesRoutes');
 app.use('/pacientes', pacientes);
 
