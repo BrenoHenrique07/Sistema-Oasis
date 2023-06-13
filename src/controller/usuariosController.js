@@ -43,8 +43,13 @@ async function login(req, res) {
         res.status(500).json({mensagem:' Erro ao logar com usuario', erro: err.message});
     }
 }
+
+async function logout (req, res) {
+    res.end();
+}
  
 module.exports = {
     create,
-    login
+    login,
+    logout
 }

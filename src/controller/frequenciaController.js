@@ -41,7 +41,7 @@ async function findById(req, res) {
 }
 
 async function create(req, res) {
-    console.log(req.body);
+
     try {
         const frequencia = await database.frequencia.create({
             pacienteId: req.body.pacienteId
