@@ -41,20 +41,35 @@ async function findByName(req, res) {
 }
 
 async function create(req, res) {
-    
+
+
     try {
-        const paciente = await database.pacientes.create({
-            nome: req.body.nome,
-            sobrenome: req.body.sobrenome,
-            cpf: req.body.cpf,
-            endereco: req.body.endereco,
-            doenca: req.body.doenca,
-            dataNascimento: req.body.dataNascimento
+        var verificacao = await database.pacientes.findAll({
+            where: {
+                cpf: req.body.cpf
+            }
         });
-        
-        res.status(200).json(paciente);
-    } catch(err) {
-        res.status(500).json({mensagem:' Erro ao criar paciente', erro: err.message});
+
+        if(verificacao.length === 0) {   
+            try {
+                const paciente = await database.pacientes.create({
+                    nome: req.body.nome,
+                    sobrenome: req.body.sobrenome,
+                    cpf: req.body.cpf,
+                    endereco: req.body.endereco,
+                    doenca: req.body.doenca,
+                    dataNascimento: req.body.dataNascimento
+                });
+                
+                res.status(200).json(paciente);
+            } catch(err) {
+                res.status(500).json({mensagem:' Erro ao criar paciente', erro: err.message});
+            }
+        } else {
+            res.status(500).json({mensagem:' Paciente existente'});
+        }
+    } catch (err) {
+        res.status(500).json({mensagem:' Erro ao buscar paciente', erro: err.message});
     }
 }
 
@@ -89,8 +104,12 @@ async function remove(req, res) {
     try {
         const paciente = await database.pacientes.findByPk(req.params.id);
 
-        res.status(200).json({mensagem: `${paciente.nome} excluído com sucesso`});
-        paciente.destroy();
+        if(paciente.length > 0) {
+            res.status(200).json({mensagem: `${paciente.nome} excluído com sucesso`});
+            paciente.destroy();   
+        } else {
+            res.status(200).json({mensagem: "Paciente existente"});
+        }
     } catch(err) {
         res.status(500).json({mensagem:' Erro ao buscar paciente', erro: err.message});
     }
