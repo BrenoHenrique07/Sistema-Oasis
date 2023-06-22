@@ -40,18 +40,33 @@ async function findByName(req, res) {
 }
 
 async function create(req, res) {
+
     try {
-        const responsavel = await database.responsaveis.create({
-            nome: req.body.nome,
-            sobrenome: req.body.sobrenome,
-            cpf: req.body.cpf,
-            rg: req.body.rg,
-            pacienteId: req.body.pacienteId
+        var verificacao = await database.responsaveis.findAll({
+            where: {
+                cpf: req.body.cpf
+            }
         });
-        
-        res.status(200).json(responsavel);
-    } catch(err) {
-        res.status(500).json({mensagem:' Erro ao criar responsável', erro: err.message});
+
+        if(verificacao.length === 0) {
+            try {
+                const responsavel = await database.responsaveis.create({
+                    nome: req.body.nome,
+                    sobrenome: req.body.sobrenome,
+                    cpf: req.body.cpf,
+                    rg: req.body.rg,
+                    pacienteId: req.body.pacienteId
+                });
+                
+                res.status(200).json(responsavel);
+            } catch(err) {
+                res.status(500).json({mensagem:' Erro ao criar responsável', erro: err.message});
+            }
+        } else {
+            res.status(500).json({mensagem:' Responsável existente'});
+        }
+    } catch (err) {
+        res.status(500).json({mensagem:' Erro ao buscar reponsável', erro: err.message});
     }
 }
 

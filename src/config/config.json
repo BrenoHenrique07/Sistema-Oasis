@@ -1,8 +1,8 @@
 {
   "development": {
-    "username": "postgres",
-    "password": "postgres",
-    "database": "oasis",
+    "username": "aluno",
+    "password": "1234",
+    "database": "dawii",
     "host": "127.0.0.1",
     "dialect": "postgresql"
   },

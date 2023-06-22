@@ -5,19 +5,34 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 async function create(req, res) {
-    try {
-        const senha = bcrypt.hashSync(req.body.senha, 8);
 
-        const usuario = await database.usuarios.create({
-            nome: req.body.nome,
-            sobrenome: req.body.sobrenome,
-            email: req.body.email,
-            senha: senha
+    try {
+        let verificacao = await database.usuarios.findAll({
+            where: {
+                email: req.body.email
+            }
         });
-        
-        res.status(200).json(usuario);
-    } catch(err) {
-        res.status(500).json({mensagem:' Erro ao criar usuario', erro: err.message});
+
+        if(verificacao.length === 0) {
+            try {
+                const senha = bcrypt.hashSync(req.body.senha, 8);
+    
+                const usuario = await database.usuarios.create({
+                    nome: req.body.nome,
+                    sobrenome: req.body.sobrenome,
+                    email: req.body.email,
+                    senha: senha
+                });
+                
+                res.status(200).json(usuario);
+            } catch(err) {
+                res.status(500).json({mensagem:' Erro ao criar usuario', erro: err.message});
+            }   
+        } else {
+            res.status(500).json({mensagem:' Usuário existente'});
+        }
+    } catch (err) {
+        res.status(500).json({mensagem:' Erro ao buscar usuario', erro: err.message});
     }
 }
 
