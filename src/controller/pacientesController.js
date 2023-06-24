@@ -1,5 +1,5 @@
 const database = require('../models');
-const { Op } = require('sequelize');
+const { Op, where } = require('sequelize');
 
 async function findAll(req, res) {
     try {
@@ -105,8 +105,9 @@ async function remove(req, res) {
         const paciente = await database.pacientes.findByPk(req.params.id);
 
         if(paciente.length > 0) {
-            res.status(200).json({mensagem: `${paciente.nome} excluído com sucesso`});
-            paciente.destroy();   
+            let nomePaciente = paciente.nome;
+            paciente.destroy();  
+            res.status(200).json({mensagem: `${nomePaciente} excluído com sucesso`}); 
         } else {
             res.status(200).json({mensagem: "Paciente existente"});
         }

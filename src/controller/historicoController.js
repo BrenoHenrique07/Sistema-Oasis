@@ -38,16 +38,20 @@ async function remove(req, res) {
     try {
         const paciente = await database.pacientes.findByPk(req.params.id);
 
-        const historicoArray = await database.historicoDoencas.findAll({
-            where : {
-                pacienteId: paciente.id
-            }
-        })
-
-        historicoArray.forEach(element => {
-            element.destroy();
-        });
-        res.status(200).json({mensagem: `Histórico ${paciente.nome} excluído com sucesso`});
+        if(paciente.length > 0) {
+            const historicoArray = await database.historicoDoencas.findAll({
+                where : {
+                    pacienteId: paciente.id
+                }
+            })
+    
+            historicoArray.forEach(element => {
+                element.destroy();
+            });
+            res.status(200).json({mensagem: `Histórico ${paciente.nome} excluído com sucesso`});
+        } else {
+            res.status(200).json({mensagem: "Paciente existente"});
+        }
     } catch(err) {
         res.status(500).json({mensagem:' Erro ao buscar paciente', erro: err.message});
     }

@@ -55,16 +55,18 @@ async function create(req, res) {
 
 async function remove(req, res) {
     try {
-        const frequenciaArray = await database.frequencia.findAll({
+        const frequencia = await database.frequencia.findAll({
             where : {
-                pacienteId: req.params.id
+                id: req.params.id
             }
         })
 
-        frequenciaArray.forEach(element => {
-            element.destroy();
-        });
-        res.status(200).json({mensagem: `Frequência excluído com sucesso`});
+        if(frequencia.length > 0) {
+            frequencia.destroy();  
+            res.status(200).json({mensagem: `Frequencia excluída com sucesso`}); 
+        } else {
+            res.status(200).json({mensagem: "Paciente existente"});
+        }
     } catch(err) {
         res.status(500).json({mensagem:' Erro ao buscar paciente', erro: err.message});
     }

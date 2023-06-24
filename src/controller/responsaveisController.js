@@ -99,8 +99,13 @@ async function remove(req, res) {
     try {
         const responsavel = await database.responsaveis.findByPk(req.params.id);
 
-        res.status(200).json({mensagem: `${responsavel.nome} excluído com sucesso`});
-        responsavel.destroy();
+        if(responsavel.length > 0) {
+            let nomeResponsavel = responsavel.nome;
+            responsavel.destroy();  
+            res.status(200).json({mensagem: `${nomeResponsavel} excluído com sucesso`}); 
+        } else {
+            res.status(200).json({mensagem: "Paciente existente"});
+        }
     } catch(err) {
         res.status(500).json({mensagem:' Erro ao buscar responsável', erro: err.message});
     }
