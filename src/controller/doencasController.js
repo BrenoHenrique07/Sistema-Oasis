@@ -62,13 +62,9 @@ async function remove(req, res) {
     try {
         const doenca = await database.doencas.findByPk(req.params.id);
 
-        if(doenca.length > 0) {
-            let nomeDoenca = doenca.nome;
-            doenca.destroy();  
-            res.status(200).json({mensagem: `${nomeDoenca} excluído com sucesso`}); 
-        } else {
-            res.status(200).json({mensagem: "Paciente existente"});
-        }
+        let nomeDoenca = doenca.nome;
+        doenca.destroy();  
+        res.status(200).json({mensagem: `${nomeDoenca} excluído com sucesso`}); 
     } catch(err) {
         res.status(500).json({mensagem:' Erro ao buscar doença', erro: err.message});
     }

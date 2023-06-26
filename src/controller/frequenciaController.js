@@ -61,12 +61,8 @@ async function remove(req, res) {
             }
         })
 
-        if(frequencia.length > 0) {
-            frequencia.destroy();  
-            res.status(200).json({mensagem: `Frequencia excluída com sucesso`}); 
-        } else {
-            res.status(200).json({mensagem: "Paciente existente"});
-        }
+        frequencia.destroy();  
+        res.status(200).json({mensagem: `Frequencia excluída com sucesso`}); 
     } catch(err) {
         res.status(500).json({mensagem:' Erro ao buscar paciente', erro: err.message});
     }
