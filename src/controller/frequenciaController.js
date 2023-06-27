@@ -55,16 +55,12 @@ async function create(req, res) {
 
 async function remove(req, res) {
     try {
-        const frequencia = await database.frequencia.findAll({
-            where : {
-                id: req.params.id
-            }
-        })
+        const frequencia = await database.frequencia.findByPk(req.params.id);
 
         frequencia.destroy();  
         res.status(200).json({mensagem: `Frequencia excluída com sucesso`}); 
     } catch(err) {
-        res.status(500).json({mensagem:' Erro ao buscar paciente', erro: err.message});
+        res.status(500).json({mensagem:' Erro ao buscar frequencia', erro: err.message});
     }
 }
 

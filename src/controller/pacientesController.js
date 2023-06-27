@@ -102,11 +102,41 @@ async function alter(req, res) {
 
 async function remove(req, res) {
     try {
-        const paciente = await database.pacientes.findByPk(req.params.id);
+        let verify = null;
 
-        let nomePaciente = paciente.nome;
-        paciente.destroy();  
-        res.status(200).json({mensagem: `${nomePaciente} excluído com sucesso`}); 
+        if(verify == null) {
+            verify = await database.responsaveis.findAll({
+                where: {
+                    pacienteId: req.params.id
+                }
+            })
+        } 
+
+        if(verify.length === 0) {
+            verify = await database.frequencia.findAll({
+                where: {
+                    pacienteId: req.params.id
+                }
+            })
+        }
+
+        if(verify.length === 0) {
+            verify = await database.historicoDoencas.findAll({
+                where: {
+                    pacienteId: req.params.id
+                }
+            })
+        }
+
+        if(verify.length === 0) {  
+            const paciente = await database.pacientes.findByPk(req.params.id);
+
+            let nomePaciente = paciente.nome;
+            paciente.destroy();  
+            res.status(200).json({mensagem: `${nomePaciente} excluído com sucesso`, ok: true}); 
+        } else {
+            res.status(200).json({mensagem: `Paciente não pode ser exluído no momento`, ok: false}); 
+        }
     } catch(err) {
         res.status(500).json({mensagem:' Erro ao buscar paciente', erro: err.message});
     }
