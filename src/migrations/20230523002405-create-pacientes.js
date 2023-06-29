@@ -25,6 +25,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
+      doenca: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
       dataNascimento: {
         type: Sequelize.DATEONLY,
         allowNull: false

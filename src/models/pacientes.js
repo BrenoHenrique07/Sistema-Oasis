@@ -29,6 +29,7 @@ module.exports = (sequelize, DataTypes) => {
     sobrenome: DataTypes.STRING,
     cpf: DataTypes.STRING,
     endereco: DataTypes.STRING,
+    doenca: DataTypes.STRING,
     dataNascimento: DataTypes.DATEONLY
   }, {
     sequelize,
