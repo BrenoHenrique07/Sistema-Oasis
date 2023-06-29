@@ -101,7 +101,7 @@ async function remove(req, res) {
 
         let nomeResponsavel = responsavel.nome;
         responsavel.destroy();  
-        res.status(200).json({mensagem: `${nomeResponsavel} excluído com sucesso`}); 
+        res.status(200).json({mensagem: `${nomeResponsavel} excluído com sucesso`, ok: true}); 
     } catch(err) {
         res.status(500).json({mensagem:' Erro ao buscar responsável', erro: err.message});
     }

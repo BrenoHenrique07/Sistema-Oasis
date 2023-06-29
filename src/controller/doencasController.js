@@ -64,7 +64,7 @@ async function remove(req, res) {
 
         let nomeDoenca = doenca.nome;
         doenca.destroy();  
-        res.status(200).json({mensagem: `${nomeDoenca} excluído com sucesso`}); 
+        res.status(200).json({mensagem: `${nomeDoenca} excluído com sucesso`, ok: true}); 
     } catch(err) {
         res.status(500).json({mensagem:' Erro ao buscar doença', erro: err.message});
     }

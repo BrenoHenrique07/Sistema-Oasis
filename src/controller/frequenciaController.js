@@ -58,7 +58,7 @@ async function remove(req, res) {
         const frequencia = await database.frequencia.findByPk(req.params.id);
 
         frequencia.destroy();  
-        res.status(200).json({mensagem: `Frequencia excluída com sucesso`}); 
+        res.status(200).json({mensagem: `Frequencia excluída com sucesso`, ok: true}); 
     } catch(err) {
         res.status(500).json({mensagem:' Erro ao buscar frequencia', erro: err.message});
     }
