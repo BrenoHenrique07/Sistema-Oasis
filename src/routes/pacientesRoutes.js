@@ -6,6 +6,8 @@ router.get('/', controller.findAll);
 
 router.get('/:nome', controller.findByName);
 
+router.get('/id/:id', controller.findByPk);
+
 router.post('/', controller.create);
 
 router.put('/:id', controller.alter);

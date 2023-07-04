@@ -24,6 +24,15 @@ async function findByName(req, res) {
     }
 }
 
+async function findByPk(req, res) {
+    try {
+        const doenca = await database.doencas.findByPk(req.params.id);
+        res.status(200).json(doenca);
+    } catch(err) {
+        res.status(500).json({mensagem:' Erro ao buscar doenças', erro: err.message});
+    }
+}
+
 async function create(req, res) {
     try {
         const doenca = await database.doencas.create({
@@ -73,6 +82,7 @@ async function remove(req, res) {
 module.exports = {
     findAll,
     findByName,
+    findByPk,
     create,
     alter,
     remove
